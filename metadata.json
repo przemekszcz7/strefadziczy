@@ -1,0 +1,6 @@
+{
+  "name": "Strefa Dziczy",
+  "description": "Strona internetowa dla miejsca Strefa Dziczy – Grill & Ognisko & Imprezy w Stołowaczu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

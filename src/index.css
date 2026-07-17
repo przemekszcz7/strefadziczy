@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1f3325;
+  --color-forest-dark: #0e1911;
+  --color-forest-light: #2c4433;
+  --color-wood: #8b5e3c;
+  --color-wood-dark: #6e4629;
+  --color-wood-light: #a97e5d;
+  --color-beige: #f6f2ea;
+  --color-beige-dark: #eae3d2;
+  --color-campfire: #ff8c42;
+  --color-campfire-glow: #e66817;
+  --color-campfire-light: #ffa66b;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+/* Base custom styles for premium glamping vibe */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-beige);
+  color: var(--color-forest);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-beige-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-forest);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-forest-light);
+}
+
+/* Pure CSS Parallax utility classes */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Campfire embers glow animation */
+@keyframes flicker {
+  0%, 100% {
+    opacity: 0.9;
+    box-shadow: 0 0 20px 4px rgba(255, 140, 66, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 35px 8px rgba(255, 140, 66, 0.7);
+  }
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite ease-in-out;
+}
+
+/* Subtle leaf float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 6s infinite ease-in-out;
+}
+
+/* Staggered load-in helper classes for CSS transitions */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Underline animation for premium links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-campfire);
+  transform-origin: bottom right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
